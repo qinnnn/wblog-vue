@@ -20,7 +20,7 @@
         qq: {title: 'QQ', message: '752396987'},
         gitee: {
           title: 'gitee',
-          message: '<a target="_blank" href="https://gitee.com/seu-lfh/vblog.git">https://gitee.com/seu-lfh/vblog.git</a>'
+          message: '<a target="_blank" href="https://gitee.com/seu-lfh/wblog.git">https://gitee.com/seu-lfh/wblog.git</a>'
         }
       }
     },
