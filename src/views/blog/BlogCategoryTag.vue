@@ -58,9 +58,9 @@
     computed: {
       title() {
         if(this.$route.params.type === 'tag'){
-          return `${this.ct.tagName} - 标签 - For Fun`
+          return `${this.ct.tagName} - 标签 - wblog`
         }
-        return `${this.ct.categoryName} - 文章分类 - For Fun`
+        return `${this.ct.categoryName} - 类型 - wblog`
       }
     },
     methods: {
@@ -81,7 +81,7 @@
           that.ct = data.data
         }).catch(error => {
           if (error !== 'error') {
-            that.$message({type: 'error', message: '文章分类加载失败', showClose: true})
+            that.$message({type: 'error', message: '类型加载失败', showClose: true})
           }
         })
       },

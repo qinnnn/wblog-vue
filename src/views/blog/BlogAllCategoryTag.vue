@@ -3,7 +3,7 @@
     <el-container class="me-allct-container">
       <el-main>
         <el-tabs v-model="activeName">
-          <el-tab-pane label="文章分类" name="category">
+          <el-tab-pane label="类型" name="category">
             <ul class="me-allct-items">
               <li v-for="c in categorys" @click="view(c.id)" :key="c.id" class="me-allct-item">
                 <div class="me-allct-content">
@@ -68,10 +68,10 @@
       },
       categoryTagTitle (){
         if(this.currentActiveName == 'category'){
-          return '文章分类 - For Fun'
+          return '类型 - wblog'
         }
         console.info('dddd---test')
-        return '标签 - For Fun'
+        return '标签 - wblog'
       }
     },
     created() {
@@ -88,7 +88,7 @@
           that.categorys = data.data
         }).catch(error => {
           if (error !== 'error') {
-            that.$message({type: 'error', message: '文章分类加载失败', showClose: true})
+            that.$message({type: 'error', message: '类型加载失败', showClose: true})
           }
         })
       },

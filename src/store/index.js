@@ -51,6 +51,7 @@ export default new Vuex.Store({
           if (data.data) {
             commit('SET_ACCOUNT', data.data.account)
             commit('SET_NAME', data.data.nickname)
+            console.log(data.data);
             commit('SET_AVATAR', data.data.avatar)
             commit('SET_ID', data.data.id)
           } else {

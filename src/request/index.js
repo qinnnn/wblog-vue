@@ -48,7 +48,7 @@ service.interceptors.response.use(
 
         store.dispatch('fedLogOut')
 
-        return Promise.reject('error');
+        return Promise.reject('未登录或登录超时，请重新登录哦');
       }
 
       //70001 权限认证错误
@@ -59,7 +59,7 @@ service.interceptors.response.use(
           showClose: true,
           message: '你没有权限访问哦'
         })
-        return Promise.reject('error');
+        return Promise.reject('你没有权限访问哦');
       }
 
       return Promise.reject(res.msg);
@@ -73,7 +73,7 @@ service.interceptors.response.use(
       showClose: true,
       message: '连接超时'
     })
-    return Promise.reject('error')
+    return Promise.reject('连接超时')
   })
 
 export default service

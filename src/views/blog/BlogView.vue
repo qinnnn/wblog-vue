@@ -13,7 +13,7 @@
           <h1 class="me-view-title">{{article.title}}</h1>
           <div class="me-view-author">
             <a class="">
-              <img class="me-view-picture" :src="article.author.avatar"></img>
+              <img class="me-view-picture" :src="article.author.avatar"/>
             </a>
             <div class="me-view-info">
               <span>{{article.author.nickname}}</span>
@@ -52,7 +52,7 @@
           </div>
 
           <div class="me-view-tag">
-            文章分类：
+            类型：
             <!--<span style="font-weight: 600">{{article.category.categoryname}}</span>-->
             <el-button @click="tagOrCategory('category', article.category.id)" size="mini" type="primary" round plain>{{article.category.categoryName}}</el-button>
           </div>
@@ -62,7 +62,7 @@
               <el-row :gutter="20">
                 <el-col :span="2">
                   <a class="">
-                    <img class="me-view-picture" :src="avatar"></img>
+                    <img class="me-view-picture" :src="avatar" />
                   </a>
                 </el-col>
                 <el-col :span="21">
@@ -151,13 +151,13 @@
     computed: {
       avatar() {
         let avatar = this.$store.state.avatar
-        if (avatar.length > 0) {
+        if (avatar!=null&&avatar.length > 0) {
           return avatar
         }
         return default_avatar
       },
       title() {
-        return `${this.article.title} - 文章 - For Fun`
+        return `${this.article.title} - 文章 - wblog`
       }
     },
     created() {

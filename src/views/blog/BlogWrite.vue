@@ -29,7 +29,7 @@
         </el-main>
       </el-container>
 
-      <el-dialog title="摘要 分类 标签"
+      <el-dialog title="摘要 类型 标签"
                  :visible.sync="publishVisible"
                  :close-on-click-modal=false
                  custom-class="me-dialog">
@@ -42,8 +42,8 @@
                       placeholder="请输入文章摘要">
             </el-input>
           </el-form-item>
-          <el-form-item label="文章分类" prop="category">
-            <el-select v-model="articleForm.category" value-key="id" placeholder="请选择文章分类">
+          <el-form-item label="文章类型" prop="category">
+            <el-select v-model="articleForm.category" value-key="id" placeholder="请选择文章类型">
               <el-option v-for="c in categorys" :key="c.id" :label="c.categoryName" :value="c"></el-option>
             </el-select>
           </el-form-item>
@@ -123,7 +123,7 @@
             {max: 80, message: '不能大于80个字符', trigger: 'blur'}
           ],
           category: [
-            {required: true, message: '请选择文章分类', trigger: 'change'}
+            {required: true, message: '请选择类型', trigger: 'change'}
           ],
           tags: [
             {type: 'array', required: true, message: '请选择标签', trigger: 'change'}
@@ -133,7 +133,7 @@
     },
     computed: {
       title (){
-        return '写文章 - For Fun'
+        return '写文章 - wblog'
       }
     },
     mounted() {
@@ -242,7 +242,7 @@
           that.categorys = data.data
         }).catch(error => {
           if (error !== 'error') {
-            that.$message({type: 'error', message: '文章分类加载失败', showClose: true})
+            that.$message({type: 'error', message: '类型加载失败', showClose: true})
           }
         })
 
@@ -283,7 +283,7 @@
     position: fixed;
     z-index: 1024;
     min-width: 100%;
-    box-shadow: 0 2px 3px hsla(0, 0%, 7%, .1), 0 0 0 1px hsla(0, 0%, 7%, .1);
+    box-shadow: 0 2px 3px hsla(0, 0%, 7%, .1);
   }
 
   .me-write-info {
