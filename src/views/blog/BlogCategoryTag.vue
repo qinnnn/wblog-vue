@@ -30,7 +30,7 @@
   import {getArticlesByCategory, getArticlesByTag} from '@/api/article'
   import {getTagDetail} from '@/api/tag'
   import {getCategoryDetail} from '@/api/category'
-  import defaultAvatar from '@/assets/img/logo.png'
+  import defaultAvatar from '@/assets/img/logo.jpg'
 
   export default {
     name: 'BlogCategoryTag',
@@ -150,7 +150,7 @@
   }
 
   .me-ct-articles {
-    width: 640px;
+    width: 840px;
     margin: 30px auto;
   }
 

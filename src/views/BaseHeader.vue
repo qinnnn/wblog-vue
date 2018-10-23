@@ -2,9 +2,9 @@
   <el-header class="me-area">
     <el-row class="me-header">
 
-      <el-col :span="2"  :offset="2" class="me-header-left">
+      <el-col :span="2"  :offset="3" class="me-header-left" style="margin-top:4px;">
         <router-link to="/" class="me-title">
-          <img src="../assets/img/logo.png"/>
+          <img src="../assets/img/logo.jpg"/>
         </router-link>
       </el-col>
 
@@ -13,6 +13,9 @@
                  mode="horizontal">
           <el-menu-item index="/">首页</el-menu-item>
           <el-menu-item index="/category/all">文章分类</el-menu-item>
+          <el-menu-item index="/category/1">前端文章</el-menu-item>
+          <el-menu-item index="/category/2">后端文章</el-menu-item>
+          <el-menu-item index="/category/all">其他文章</el-menu-item>
           <!-- <el-menu-item index="/tag/all">标签</el-menu-item> -->
           <el-menu-item index="/archives">文章归档</el-menu-item>
           <el-menu-item index="/log">日志</el-menu-item>
@@ -112,7 +115,7 @@
   }
 
   .me-title img {
-    max-height: 2.4rem;
+    max-height: 3.4rem;
     max-width: 100%;
   }
 

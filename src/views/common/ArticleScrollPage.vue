@@ -78,7 +78,7 @@
         that.loading = true
 
         getArticles(that.query, that.innerPage).then(data => {
-
+          // console.log(data)
           let newArticles = data.data
           if (newArticles && newArticles.length > 0) {
             that.innerPage.pageNo += 1
@@ -109,7 +109,7 @@
   }
 
   .el-card:not(:first-child) {
-    margin-top: 10px;
+    margin-top: 15px;
 
   }
 </style>

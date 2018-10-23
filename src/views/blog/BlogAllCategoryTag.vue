@@ -43,7 +43,7 @@
 </template>
 
 <script>
-  import defaultAvatar from '@/assets/img/logo.png'
+  import defaultAvatar from '@/assets/img/logo.jpg'
   import {getAllCategorysDetail} from '@/api/category'
   import {getAllTagsDetail} from '@/api/tag'
 
