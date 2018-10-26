@@ -1,7 +1,7 @@
 <template>
   <el-card class="me-area me-article-flex me-list-li" :body-style="{ padding: '0px' }">
     <div class="me-list-thumbnail" @click="view(id)">
-      <img src="../../assets/img/article.jpg"/>
+      <img class="articleImg" src="../../assets/img/article.jpg"/>
       <!-- <span class="me-list-thumbnail_span" @click="tag(categoryId)">{{categoryName}}</span> -->
       <mu-button class="me-list-thumbnail_span" @click="tag(categoryId)" color="#009688">{{categoryName}}</mu-button>
       
@@ -137,5 +137,7 @@
   .el-tag {
     margin-left: 6px;
   }
+
+  
 
 </style>

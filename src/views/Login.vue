@@ -7,27 +7,18 @@
     <div class="me-login-box me-login-box-radius">
       <h1>登录</h1>
 
-      <el-form ref="userForm" :model="userForm" :rules="rules">
-        <el-form-item prop="account">
-          <el-input placeholder="用户名" v-model="userForm.account"></el-input>
-        </el-form-item>
-
-        <el-form-item prop="password">
-          <el-input placeholder="密码" v-model="userForm.password"></el-input>
-        </el-form-item>
-
-        <el-form-item size="small" class="me-login-button">
-          <el-button type="primary" @click.native.prevent="login('userForm')">登录</el-button>
-        </el-form-item>
-      </el-form>
-
-      <div class="me-login-design">
-        <p>Designed by
-          <strong>
-            <router-link to="/" class="me-login-design-color">wblog</router-link>
-          </strong>
-        </p>
-      </div>
+      <mu-form ref="form" :model="validateForm" class="mu-demo-form">
+        <mu-form-item label="用户名" help-text="请填写用户名" prop="username" :rules="usernameRules" label-float>
+          <mu-text-field v-model="validateForm.username" prop="username"></mu-text-field>
+        </mu-form-item>
+        <mu-form-item label="密码" help-text="请填写密码" prop="password" :rules="passwordRules" label-float>
+            <mu-text-field type="password" v-model="validateForm.password" prop="password"></mu-text-field>
+        </mu-form-item>
+        <mu-form-item>
+          <mu-button color="primary" @click="submit">提交</mu-button>
+          <mu-button @click="clear">重置</mu-button>
+        </mu-form-item>
+      </mu-form>
 
     </div>
   </div>
@@ -38,26 +29,35 @@
     name: 'Login',
     data() {
       return {
-        userForm: {
-          account: '',
-          password: ''
-        },
-        rules: {
-          account: [
-            {required: true, message: '请输入用户名', trigger: 'blur'},
-            {max: 10, message: '不能大于10个字符', trigger: 'blur'}
-          ],
-          password: [
-            {required: true, message: '请输入密码', trigger: 'blur'},
-            {max: 10, message: '不能大于10个字符', trigger: 'blur'}
-          ]
+        usernameRules: [
+          { validate: (val) => !!val, message: '必须填写用户名'},
+          { validate: (val) => val.length >= 3, message: '用户名长度大于3'}
+        ],
+        passwordRules: [
+          { validate: (val) => !!val, message: '必须填写密码'},
+          { validate: (val) => val.length >= 3 && val.length <= 10, message: '密码长度大于3小于10'}
+        ],
+        validateForm: {
+          username: '',
+          password: '',
         }
       }
     },
     methods: {
+      submit () {
+        this.$refs.form.validate().then((result) => {
+          console.log('form valid: ', result)
+        });
+      },
+      clear () {
+        this.$refs.form.clear();
+        this.validateForm = {
+          username: '',
+          password: '',
+        };
+      },
       login(formName) {
         let that = this
-
         this.$refs[formName].validate((valid) => {
           if (valid) {
             that.$store.dispatch('login', that.userForm).then(() => {

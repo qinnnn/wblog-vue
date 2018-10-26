@@ -79,19 +79,6 @@
     border: 0px solid #ddd;
     border-radius: 4px;
   }
-  .me-list-thumbnail img{
-    float: left;
-    width: 150px;
-    height: 150px;
-    /* width: auto; */
-    /* height: auto; */
-    max-width: 100%;
-    border: 0;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    cursor: pointer;
-  }
   .me-list-thumbnail_span{
     position: absolute;
     top: 0;
@@ -165,6 +152,23 @@
     width: 5px;
     height: 30px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  }
+  .articleImg{
+    float: left;
+    width: 150px;
+    height: 150px;
+    /* width: auto; */
+    /* height: auto; */
+    max-width: 100%;
+    border: 0;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    transition: all 0.6s;
+    cursor: pointer;
+  }
+  .articleImg:hover{
+    transform: scale(1.1);
   }
   .me-list-content .entry-meta{
     position: absolute;
