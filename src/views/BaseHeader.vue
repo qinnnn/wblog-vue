@@ -15,7 +15,7 @@
           <el-menu-item index="/category/all">文章分类</el-menu-item>
           <el-menu-item index="/category/1">前端文章</el-menu-item>
           <el-menu-item index="/category/2">后端文章</el-menu-item>
-          <el-menu-item index="/category/all">其他文章</el-menu-item>
+          <!-- <el-menu-item index="/category/all">其他文章</el-menu-item> -->
           <!-- <el-menu-item index="/tag/all">标签</el-menu-item> -->
           <el-menu-item index="/archives">文章归档</el-menu-item>
           <el-menu-item index="/log">日志</el-menu-item>
@@ -37,11 +37,11 @@
 
           <template v-if="!user.login">
             <el-menu-item index="/login">
-              <el-button type="text">登录 / 注册</el-button>
+              <el-button type="text">登录</el-button>
             </el-menu-item>
-            <!-- <el-menu-item index="/register">
+            <el-menu-item index="/register">
               <el-button type="text">注册</el-button>
-            </el-menu-item> -->
+            </el-menu-item>
           </template>
 
           <template v-else>

@@ -66,10 +66,10 @@ const router = new Router({
       path: '/login',
       component: r => require.ensure([], () => r(require('@/views/Login')), 'login')
     },
-    // {
-    //   path: '/register',
-    //   component: r => require.ensure([], () => r(require('@/views/Register')), 'register')
-    // }
+    {
+      path: '/register',
+      component: r => require.ensure([], () => r(require('@/views/Register')), 'register')
+    }
   ],
   scrollBehavior(to, from, savedPosition) {
     return {x: 0, y: 0}

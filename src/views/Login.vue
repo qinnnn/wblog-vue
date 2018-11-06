@@ -5,7 +5,7 @@
       </video>-->
 
     <div class="me-login-box me-login-box-radius">
-      <h1>登录</h1>
+      <h1>wblog 登录</h1>
 
       <mu-form ref="form" :model="validateForm" class="mu-demo-form">
         <mu-form-item label="用户名" help-text="请填写用户名" prop="username" :rules="usernameRules" label-float>
@@ -46,7 +46,18 @@
     methods: {
       submit () {
         this.$refs.form.validate().then((result) => {
-          console.log('form valid: ', result)
+          
+          if(result){
+            let dataFrom={'account':this.validateForm.username,"password":this.validateForm.password}
+            // console.log(dataFrom)
+            this.$store.dispatch('login', dataFrom).then(() => {
+                this.$router.go(-1)
+              }).catch((error) => {
+                if (error !== 'error') {
+                  this.$message({message: error, type: 'error', showClose: true});
+                }
+              })
+            }
         });
       },
       clear () {
@@ -60,13 +71,7 @@
         let that = this
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            that.$store.dispatch('login', that.userForm).then(() => {
-              that.$router.go(-1)
-            }).catch((error) => {
-              if (error !== 'error') {
-                that.$message({message: error, type: 'error', showClose: true});
-              }
-            })
+            
           } else {
             return false;
           }
@@ -96,13 +101,12 @@
 
   .me-login-box {
     position: absolute;
-    width: 300px;
-    height: 260px;
-    background-color: white;
+    /* width: 300px; */
+    background-color: #eee;
     margin-top: 150px;
-    margin-left: -180px;
+    margin-left: -250px;
     left: 50%;
-    padding: 30px;
+    padding: 30px 100px;
   }
 
   .me-login-box-radius {

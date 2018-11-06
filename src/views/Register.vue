@@ -7,7 +7,7 @@
     <div class="me-login-box me-login-box-radius">
       <h1>wblog 注册</h1>
 
-      <el-form ref="userForm" :model="userForm" :rules="rules">
+      <!-- <el-form ref="userForm" :model="userForm" :rules="rules">
         <el-form-item prop="account">
           <el-input placeholder="用户名" v-model="userForm.account"></el-input>
         </el-form-item>
@@ -23,15 +23,23 @@
         <el-form-item size="small" class="me-login-button">
           <el-button type="primary" @click.native.prevent="register('userForm')">注册</el-button>
         </el-form-item>
-      </el-form>
+      </el-form> -->
+      <mu-form ref="form" :model="validateForm" class="mu-demo-form">
+        <mu-form-item label="用户名" help-text="请填写用户名" prop="username" :rules="usernameRules" label-float>
+          <mu-text-field v-model="validateForm.username" prop="username"></mu-text-field>
+        </mu-form-item>
+        <mu-form-item label="昵称" help-text="请填写昵称" prop="nickname" :rules="nicknameRules" label-float>
+          <mu-text-field v-model="validateForm.nickname" prop="nickname"></mu-text-field>
+        </mu-form-item>
+        <mu-form-item label="密码" help-text="请填写密码" prop="password" :rules="passwordRules" label-float>
+            <mu-text-field type="password" v-model="validateForm.password" prop="password"></mu-text-field>
+        </mu-form-item>
+        <mu-form-item>
+          <mu-button color="primary" @click="submit">提交</mu-button>
+          <mu-button @click="clear">重置</mu-button>
+        </mu-form-item>
+      </mu-form>
 
-      <div class="me-login-design">
-        <p>Designed by
-          <strong>
-            <router-link to="/" class="me-login-design-color">wblog</router-link>
-          </strong>
-        </p>
-      </div>
 
     </div>
   </div>
@@ -44,48 +52,69 @@
     name: 'Register',
     data() {
       return {
-        userForm: {
-          account: '',
+        usernameRules: [
+          { validate: (val) => !!val, message: '必须填写用户名'},
+          { validate: (val) => val.length >= 3, message: '用户名长度大于3'}
+        ],
+        nicknameRules: [
+          { validate: (val) => !!val, message: '必须填写昵称'},
+          { validate: (val) => val.length >= 3, message: '昵称长度大于3'}
+        ],
+        passwordRules: [
+          { validate: (val) => !!val, message: '必须填写密码'},
+          { validate: (val) => val.length >= 3 && val.length <= 10, message: '密码长度大于3小于10'}
+        ],
+        validateForm: {
+          username: '',
           nickname: '',
-          password: ''
-        },
-        rules: {
-          account: [
-            {required: true, message: '请输入用户名', trigger: 'blur'},
-            {max: 10, message: '不能大于10个字符', trigger: 'blur'}
-          ],
-          nickname: [
-            {required: true, message: '请输入昵称', trigger: 'blur'},
-            {max: 10, message: '不能大于10个字符', trigger: 'blur'}
-          ],
-          password: [
-            {required: true, message: '请输入密码', trigger: 'blur'},
-            {max: 10, message: '不能大于10个字符', trigger: 'blur'}
-          ]
+          password: '',
         }
       }
     },
     methods: {
-      register(formName) {
-        let that = this
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
+      // register(formName) {
+      //   let that = this
+      //   this.$refs[formName].validate((valid) => {
+      //     if (valid) {
 
-            that.$store.dispatch('register', that.userForm).then(() => {
-              that.$message({message: '注册成功 快写文章吧', type: 'success', showClose: true});
-              that.$router.push({path: '/'})
-            }).catch((error) => {
-              if (error !== 'error') {
-                that.$message({message: error, type: 'error', showClose: true});
-              }
-            })
+      //       that.$store.dispatch('register', that.userForm).then(() => {
+      //         that.$message({message: '注册成功 快写文章吧', type: 'success', showClose: true});
+      //         that.$router.push({path: '/'})
+      //       }).catch((error) => {
+      //         if (error !== 'error') {
+      //           that.$message({message: error, type: 'error', showClose: true});
+      //         }
+      //       })
 
-          } else {
-            return false;
-          }
+      //     } else {
+      //       return false;
+      //     }
+      //   });
+
+      // },
+      submit () {
+        this.$refs.form.validate().then((result) => {
+          if(result){
+            let dataFrom={'account':this.validateForm.username,'nickname':this.validateForm.nickname,"password":this.validateForm.password}
+            // console.log(dataFrom)
+            this.$store.dispatch('register', dataFrom).then(() => {
+                this.$router.go(-1)
+              }).catch((error) => {
+                if (error !== 'error') {
+                  this.$message({message: error, type: 'error', showClose: true});
+                }
+              })
+            }
         });
-
-      }
+      },
+      clear () {
+        this.$refs.form.clear();
+        this.validateForm = {
+          username: '',
+          nickname: '',
+          password: '',
+        };
+      },
 
     }
   }
@@ -111,13 +140,13 @@
 
   .me-login-box {
     position: absolute;
-    width: 300px;
-    height: 320px;
-    background-color: white;
+    /* width: 300px; */
+    /* height: 320px; */
+    background-color: #eee;
     margin-top: 150px;
-    margin-left: -180px;
+    margin-left: -250px;
     left: 50%;
-    padding: 30px;
+    padding: 30px 100px;
   }
 
   .me-login-box-radius {

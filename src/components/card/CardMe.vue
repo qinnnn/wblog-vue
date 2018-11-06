@@ -1,12 +1,10 @@
 <template>
   <el-card>
-    <h1 class="me-author-name">雪山飞狐</h1>
+    <h1 class="me-author-name">码农的小窝</h1>
     <div class="me-author-description">
-      <span><i class="el-icon-location-outline"></i> &nbsp;上海&虹口</span>
-      <span><i class="me-icon-job"></i> &nbsp;Java架构师</span>
+      <span><i class="el-icon-location-outline"></i> &nbsp;广东&深圳</span>
     </div>
     <div class="me-author-tool">
-      <i @click="showTool(qq)" :title="qq.title" class="me-icon-QQ"></i>
       <i @click="showTool(gitee)" :title="gitee.title" class="me-icon-github"></i>
     </div>
   </el-card>
@@ -17,10 +15,9 @@
     name: 'CardMe',
     data() {
       return {
-        qq: {title: 'QQ', message: '752396987'},
         gitee: {
           title: 'gitee',
-          message: '<a target="_blank" href="https://gitee.com/seu-lfh/wblog.git">https://gitee.com/seu-lfh/wblog.git</a>'
+          message: '<a target="_blank" href="https://github.com/qinnnn/wblog-vue.git">https://github.com/qinnnn/wblog-vue.git</a>'
         }
       }
     },
