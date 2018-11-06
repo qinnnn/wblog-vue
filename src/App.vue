@@ -146,7 +146,7 @@
     }
   .me-list-content .title-l{
     position: absolute;
-    background: #009688;
+    background: #4472c4;
     top: 20px;
     left: -1px;
     width: 5px;

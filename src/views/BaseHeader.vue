@@ -125,6 +125,6 @@
     border: 1px solid #ddd;
     border-radius: 50%;
     vertical-align: middle;
-    background-color: #5fb878;
+    background-color: #4472c4;
   }
 </style>
