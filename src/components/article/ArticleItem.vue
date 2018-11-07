@@ -3,7 +3,7 @@
     <div class="me-list-thumbnail" @click="view(id)">
       <img class="articleImg" src="../../assets/img/article.jpg"/>
       <!-- <span class="me-list-thumbnail_span" @click="tag(categoryId)">{{categoryName}}</span> -->
-      <mu-button class="me-list-thumbnail_span" @click="tag(categoryId)" color="#009688">{{categoryName}}</mu-button>
+      <mu-button class="me-list-thumbnail_span" style="padding:0" @click="tag(categoryId)" color="#009688">{{categoryName}}</mu-button>
       
     </div>
     <header class="me-list-header">
@@ -28,7 +28,7 @@
         <span class="me-article-count">
           <i class="me-icon-comment"></i>&nbsp;{{commentNum}}
         </span>
-        <el-tag v-for="t in tags" :key="t" size="mini" type="success">{{t}}</el-tag>
+        <el-tag  v-for="t in tags" :key="t" size="mini" type="success">{{t}}</el-tag>
       </span>
       <span class="me-list-more">
           <i class="el-icon-time"></i>&nbsp;{{createTime | format}}

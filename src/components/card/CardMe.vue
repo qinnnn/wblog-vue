@@ -1,8 +1,8 @@
 <template>
   <el-card>
     <h1 class="me-author-name">码农的小窝</h1>
-    <div class="me-author-description">
-      <span><i class="el-icon-location-outline"></i> &nbsp;广东&深圳</span>
+    <div style="text-align:center;" class="me-author-description">
+      <span ><i class="el-icon-location-outline"></i> &nbsp;广东&深圳</span>
     </div>
     <div class="me-author-tool">
       <i @click="showTool(gitee)" :title="gitee.title" class="me-icon-github"></i>
@@ -38,7 +38,7 @@
   .me-author-name {
     text-align: center;
     font-size: 30px;
-    border-bottom: 1px solid #5FB878;
+    border-bottom: 1px solid #4472c4;
   }
 
   .me-author-description {

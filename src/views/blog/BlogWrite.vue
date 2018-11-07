@@ -325,7 +325,7 @@
   }
 
   .me-title img {
-    max-height: 2.4rem;
+    max-height: 2em;
     max-width: 100%;
   }
 

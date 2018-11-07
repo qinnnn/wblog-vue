@@ -9,7 +9,7 @@
       </el-col>
 
       <el-col v-if="!simple" :span="12" :offset="0">
-        <el-menu :router=true menu-trigger="click" active-text-color="#5FB878" :default-active="activeIndex"
+        <el-menu :router=true menu-trigger="click" active-text-color="#4472c4" :default-active="activeIndex"
                  mode="horizontal">
           <el-menu-item index="/">首页</el-menu-item>
           <el-menu-item index="/category/all">文章分类</el-menu-item>
@@ -21,9 +21,9 @@
           <el-menu-item index="/log">日志</el-menu-item>
           <!-- <el-menu-item index="/feedback">留言板</el-menu-item> -->
 
-          <el-col :span="2" :offset="1">
-            <el-menu-item index="/write"><i class="el-icon-edit"></i>写文章</el-menu-item>
-          </el-col>
+          <!-- <el-col :span="2" :offset="1">
+            
+          </el-col> -->
 
         </el-menu>
       </el-col>
@@ -33,7 +33,7 @@
       </template>
 
       <el-col :span="4" :offset="0">
-        <el-menu :router=true menu-trigger="click" mode="horizontal" active-text-color="#5FB878">
+        <el-menu :router=true menu-trigger="click" mode="horizontal" active-text-color="#4472c4">
 
           <template v-if="!user.login">
             <el-menu-item index="/login">
@@ -49,6 +49,7 @@
               <template slot="title">
                 <img class="me-header-picture" :src="user.avatar"/>
               </template>
+              <el-menu-item index="/write"><i class="el-icon-edit"></i>写文章</el-menu-item>
               <el-menu-item index @click="logout"><i class="el-icon-back"></i>退出</el-menu-item>
             </el-submenu>
           </template>

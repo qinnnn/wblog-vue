@@ -34,7 +34,7 @@
   }
 
   a:hover {
-    color: #5FB878;
+    color: #4472c4;
   }
 
   .me-area {
@@ -146,7 +146,7 @@
     }
   .me-list-content .title-l{
     position: absolute;
-    background: #4472c4;
+    background: #009688;
     top: 20px;
     left: -1px;
     width: 5px;

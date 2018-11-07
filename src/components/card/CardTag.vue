@@ -3,13 +3,18 @@
     <div slot="header" class="me-tag-header">
       <span>最热标签</span>
       <a @click="moreTags" class="me-pull-right me-tag-more">查看全部</a>
+      <!-- <mu-button @click="moreTags" flat color="primary" class="me-pull-right me-tag-more">查看全部</mu-button> -->
     </div>
 
     <ul class="me-tag-list">
+      <mu-container class="button-wrapper">
       <li class="me-tag-item" v-for="t in tags" :key="t.id">
+        
         <!--type="primary"-->
-        <el-button @click="tag(t.id)" size="mini" type="primary" round plain>{{t.tagName}}</el-button>
+        <!-- <el-button @click="tag(t.id)" size="mini" type="primary" round plain>{{t.tagName}}</el-button> -->
+        <mu-button class="button-button" @click="tag(t.id)" round  color="info" plain small>{{t.tagName}}</mu-button>
       </li>
+      </mu-container>
     </ul>
   </el-card>
 </template>
@@ -53,10 +58,16 @@
     display: inline-block;
     padding: 4px;
     font-size: 14px;
-    color: #5FB878;
+    color: #4472c4;
   }
 
   .me-tag-item a:hover {
     text-decoration: underline;
   }
+  .button-wrapper {
+    text-align: center;
+  }
+.button-button{
+   padding: 8px;
+}
 </style>

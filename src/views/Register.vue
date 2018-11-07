@@ -168,7 +168,7 @@
   }
 
   .me-login-design-color {
-    color: #5FB878 !important;
+    color: #4472c4 !important;
   }
 
   .me-login-button {
